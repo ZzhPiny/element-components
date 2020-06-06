@@ -1,0 +1,92 @@
+{
+  "name": "@jdcloud/element-components",
+  "version": "1.0.8",
+  "main": "dist/index/elementComponents.umd.min.js",
+  "files": [
+    "index.js",
+    "dist/*",
+    "packages/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@git.jd.com:jcloud-tools-fe/element-components.git"
+  },
+  "scripts": {
+    "docs": "npm run docs:gen && npm run docs:preview",
+    "docs:gen": "rm -rf docs && vuese gen;exit 0",
+    "docs:preview": "vuese serve --open",
+    "lint": "vue-cli-service lint packages",
+    "version": "conventional-changelog -i CHANGELOG.md -s -r && git add CHANGELOG.md",
+    "postversion": "git push --tags",
+    "unit": "jest --config test/unit/jest.config.js --coverage",
+    "test": "npm run unit",
+    "build": "node build.js",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.4.4",
+    "@jd/element-ui": "^2.2.1",
+    "@storybook/addon-actions": "^5.1.9",
+    "@storybook/addon-links": "^5.1.9",
+    "@storybook/addon-storysource": "^5.2.5",
+    "@storybook/addons": "^5.1.9",
+    "@storybook/vue": "^5.1.9",
+    "@vue/cli-plugin-babel": "^3.2.0",
+    "@vue/cli-plugin-eslint": "^3.2.1",
+    "@vue/cli-service": "^3.2.0",
+    "@vue/eslint-config-prettier": "^4.0.1",
+    "@vue/test-utils": "^1.0.0-beta.29",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^24.7.1",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-transform-vue-jsx": "^4.0.1",
+    "babel-preset-vue": "^2.0.2",
+    "conventional-changelog-cli": "^2.0.12",
+    "cz-conventional-changelog": "^2.1.0",
+    "eslint-plugin-jest": "^22.5.1",
+    "jest": "^24.7.1",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "lint-staged": "^7.2.2",
+    "lodash.camelcase": "^4.3.0",
+    "lodash.debounce": "^4.0.8",
+    "vue": "^2.6.10",
+    "vue-i18n": "^8.2.1",
+    "vue-jest": "^3.0.4",
+    "vue-template-compiler": "^2.6.10",
+    "vuese": "^1.2.0"
+  },
+  "keywords": [
+    "element",
+    "component"
+  ],
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint",
+      "git add"
+    ],
+    "*.vue": [
+      "npm run lint",
+      "git add"
+    ]
+  },
+  "license": "MIT",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "lodash.get": "^4.4.2"
+  },
+  "peerDependencies": {
+    "element-ui": "^2.1.12",
+    "vue": "^2.6.10"
+  }
+}

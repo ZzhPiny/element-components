@@ -1,0 +1,21 @@
+# node
+node_modules/
+eslint-output.xml
+
+# mac
+.DS_Store
+
+# Editor directories and files
+**/.vscode/
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+npm-debug.log
+index.html
+package-lock.json
+
+test/unit/coverage
+dist/
